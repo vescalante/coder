@@ -1,0 +1,8 @@
+.title-saludo h3{
+    font-size: 22px;
+    color: #222222;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.title-saludo h3 span{
+    font-weight: 700;
+}

@@ -1,3 +1,6 @@
+import React from 'react';
+import CartWidget from "./CartWidget";
+
 function NavBar() {
     return (
         <nav className="navbar navbar-expand-lg bg-light">
@@ -24,7 +27,7 @@ function NavBar() {
                             <a className="nav-link" href="/index.html">Link 3</a>
                         </li>
                     </ul>
-                    <button className="btn btn-outline-success" type="submit">Login</button>
+                    <CartWidget cuantos={"5"}/>
                 </div>
             </div>
         </nav>
