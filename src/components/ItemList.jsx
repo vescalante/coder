@@ -14,6 +14,7 @@ function ItemList({ loading, error, resultado }) {
                             stock={item.stock}
                             itemName={item.itemName}
                             id={item.id}
+                            category={item.category}
                         />
                     </>
                 ))}
