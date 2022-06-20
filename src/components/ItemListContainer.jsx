@@ -55,13 +55,6 @@ function ItemListContainer({ msg, nombre }) {
             <h3>Hola <span>{nombre}</span>, {msg} {categoryId}</h3>
           </div>
         </div>
-        {/* <ItemCount
-          stock={5}
-          initial={1}
-          onAdd={function onAdd(e) {
-            alert("El valor del carrito es:" + e);
-          }}
-        /> */}
         <ItemList
           resultado={productosFiltrados}
           loading={loading}

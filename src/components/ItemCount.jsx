@@ -21,35 +21,32 @@ function ItemCount({stock, initial, onAdd}) {
     },[InitialVal]);
 
   return (
-    <div className='row'>
-        <div className='col-lg-4'>
-            <div className="card">
-                <div className="card-body">
-                    <div className="product-form container">
-                        <div className="product-qty-form">
-                            <div className="input-group">
-                                <button className="button-minus"
-                                    onClick={()=>{
-                                        if(InitialVal>=1){
-                                            setInitialVal(InitialVal-1);
-                                        }
-                                    }}>-</button>
-                                <input type="number" value={InitialVal} name="quantity" className="quantity-field" readOnly='readOnly' />
-                                <button className="button-plus"
-                                    onClick={()=>{
-                                        setInitialVal(InitialVal+1);
-                                    }}
-                                    disabled={disablePlus}>+</button>
-                            </div>
+
+        <div className="card">
+            <div className="card-body">
+                <div className="product-form container">
+                    <div className="product-qty-form">
+                        <div className="input-group">
+                            <button className="button-minus"
+                                onClick={()=>{
+                                    if(InitialVal>=1){
+                                        setInitialVal(InitialVal-1);
+                                    }
+                                }}>-</button>
+                            <input type="number" value={InitialVal} name="quantity" className="quantity-field" readOnly='readOnly' />
+                            <button className="button-plus"
+                                onClick={()=>{
+                                    setInitialVal(InitialVal+1);
+                                }}
+                                disabled={disablePlus}>+</button>
                         </div>
-                        <button className="btn btn-primary btn-cart" onClick={()=> onAdd(InitialVal)} disabled={disableAdd}>
-                            <span>Agregar al carrito</span>
-                        </button>
                     </div>
+                    <button className="btn btn-primary btn-cart" onClick={()=> onAdd(InitialVal)} disabled={disableAdd}>
+                        <span>Agregar al carrito</span>
+                    </button>
                 </div>
             </div>
         </div>
-    </div>
   )
 }
 
