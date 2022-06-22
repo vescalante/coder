@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import "./itemcount.css";
 
-function ItemCount({stock, initial, onAdd}) {
+function ItemCount({stock, initial, item, price, onAdd}) {
     const [InitialVal, setInitialVal]=useState(initial);
+    const [ItemId, setItemId]=useState(item);
+    const [ItemPrice, setItemPrice]=useState(price);
     const [StockVal, setStockVal]=useState(stock);
     const [disablePlus,setDisablePlus]=useState(false);
     const [disableAdd,setDisableAdd]=useState(false);
 
     useEffect(()=>{
-        if(InitialVal>=StockVal){
+        if(InitialVal===(StockVal+1)){
             alert('Te has llegado al limite del stock');
             setDisablePlus(true);
             setDisableAdd(true);
@@ -41,7 +43,7 @@ function ItemCount({stock, initial, onAdd}) {
                                 disabled={disablePlus}>+</button>
                         </div>
                     </div>
-                    <button className="btn btn-primary btn-cart" onClick={()=> onAdd(InitialVal)} disabled={disableAdd}>
+                    <button className="btn btn-primary btn-cart" onClick={()=> onAdd(ItemId,ItemPrice,InitialVal)} disabled={disableAdd}>
                         <span>Agregar al carrito</span>
                     </button>
                 </div>
