@@ -16,13 +16,13 @@ export default function CartContext({children}) {
         if(isInCart(i)){
             const newCart = carrito.map(obj => {
                 if(obj.itemId === i){
-                    return {...obj, quantity: obj.quantity + e }
+                    return {...obj, quantity: obj.quantity + e, subtotal: (obj.quantity+e)*p }
                 }
                 return obj;
             });
             setCarrito(newCart);
         }else{
-            setCarrito(current => [...current, {itemId: i, price: p, quantity: e}]);
+            setCarrito(current => [...current, {itemId: i, price: p, quantity: e, subtotal: p*e }]);
         }
         setTotalQuantity (totalQuantity+e);
         setMostrarItemCount(false);
@@ -30,10 +30,12 @@ export default function CartContext({children}) {
     function removeItem(itemId,q){
         setCarrito(carrito.filter(p => p.itemId !== itemId));
         setTotalQuantity (totalQuantity-q);
+        if ((totalQuantity-q) === 0) { setMostrarItemCount(true) }
     }
     function clear(){
         alert("Se ha vaciado el carro");
         setTotalQuantity(0);
+        setMostrarItemCount(true);
         setCarrito([]);
     }
     function isInCart(itemId){
