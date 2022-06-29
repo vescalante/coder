@@ -10,12 +10,16 @@ function ItemList({ loading, error, resultado }) {
             {resultado &&
                 resultado.map((item) => (
                     <>
-                        <Item
-                            stock={item.stock}
-                            itemName={item.itemName}
-                            id={item.id}
-                            category={item.category}
-                        />
+                        <div className='col-md-3 pt-3 pb-3' key={item.id}>
+                            <Item
+                                stock={item.stock}
+                                price={item.itemPrice}
+                                itemName={item.itemName}
+                                itemImage={item.itemImage}
+                                id={item.id}
+                                itemCategory={item.itemCategory}
+                            />
+                        </div>
                     </>
                 ))}
 

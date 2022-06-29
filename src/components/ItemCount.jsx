@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import "./itemcount.css";
 
-function ItemCount({stock, initial, item, price, onAdd}) {
+function ItemCount({stock, initial, item, price, onAdd, itemName, itemImage}) {
     const [InitialVal, setInitialVal]=useState(initial);
     const [ItemId, setItemId]=useState(item);
     const [ItemPrice, setItemPrice]=useState(price);
+    const [ItemName, setItemName]=useState(itemName);
+    const [ItemImage, setItemImage]=useState(itemImage);
     const [StockVal, setStockVal]=useState(stock);
     const [disablePlus,setDisablePlus]=useState(false);
     const [disableAdd,setDisableAdd]=useState(false);
@@ -43,7 +45,7 @@ function ItemCount({stock, initial, item, price, onAdd}) {
                                 disabled={disablePlus}>+</button>
                         </div>
                     </div>
-                    <button className="btn btn-primary btn-cart" onClick={()=> onAdd(ItemId,ItemPrice,InitialVal)} disabled={disableAdd}>
+                    <button className="btn btn-primary btn-cart" onClick={()=> onAdd(ItemId,ItemPrice,InitialVal, itemImage, itemName)} disabled={disableAdd}>
                         <span>Agregar al carrito</span>
                     </button>
                 </div>

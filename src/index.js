@@ -5,7 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as bootstrap from 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { initializeApp } from "firebase/app";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyAhm4olEaktOY8yoroL03l7H94LwkjzcwM",
+  authDomain: "coder-project-c84c3.firebaseapp.com",
+  projectId: "coder-project-c84c3",
+  storageBucket: "coder-project-c84c3.appspot.com",
+  messagingSenderId: "774183930354",
+  appId: "1:774183930354:web:e040df981a392cd537036b"
+};
+
+const app = initializeApp(firebaseConfig);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

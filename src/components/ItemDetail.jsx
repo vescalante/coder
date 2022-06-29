@@ -26,12 +26,12 @@ function ItemDetail({ loading, error, item }) {
                         </div>
                         <div className='col-lg-6 p-3 pt-0'>
                             <h1>{prod.itemName}</h1>
-                            <h3>${prod.itemPrice}</h3>
+                            <h3>${prod.itemPrice.toLocaleString('en-US')}</h3>
                             <p>Id: {prod.id}</p>
                             <p>Categoría: {prod.itemCategory}</p>
                             <p>Stock: {prod.stock}</p>
                             <p>{prod.itemDetail}</p>
-                            {mostrarItemCount ? <ItemCount stock={prod.stock} initial={1} item={prod.id} price={prod.itemPrice} onAdd={onAdd} /> : <div><Link className="btn btn-primary mt-3" to="/cart">Ir a mi Carrito</Link> <Link className="btn btn-secondary mt-3" to="/">Seguir comprando</Link></div> }
+                            {mostrarItemCount ? <ItemCount itemName={prod.itemName} itemImage={prod.itemImage} stock={prod.stock} initial={1} item={prod.id} price={prod.itemPrice} onAdd={onAdd} /> : <div><Link className="btn btn-primary mt-3" to="/cart">Ir a mi Carrito</Link> <Link className="btn btn-secondary mt-3" to="/">Seguir comprando</Link></div> }
                         </div>
                     </>
                 ))}

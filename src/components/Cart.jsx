@@ -20,6 +20,7 @@ export default function cart() {
                                 <table className="table table-striped">
                                     <thead>
                                         <tr>
+                                            <th scope="col">Imágen</th>
                                             <th scope="col">Producto</th>
                                             <th scope="col">Precio</th>
                                             <th scope="col">Cantidad</th>
@@ -32,10 +33,11 @@ export default function cart() {
                                         carrito.map((item) => (
                                             <>
                                                 <tr>
-                                                    <td>{item.itemId}</td>
+                                                    <td><img src={item.itemImage} className="rounded-circle" style={{ width: '40px', height: '40px' }} /></td>
+                                                    <td>{item.itemName}</td>
                                                     <td>${item.price}</td>
                                                     <td>{item.quantity}</td>
-                                                    <td>${item.subtotal.toFixed(3)}</td>
+                                                    <td>${item.subtotal.toLocaleString('en-US')}</td>
                                                     <td><button className='btn btn-primary' onClick={()=> removeItem(item.itemId, item.quantity)}>Borrar</button></td>
                                                 </tr>
                                             </>
@@ -44,7 +46,7 @@ export default function cart() {
                                 </table>
                             </div>
                             <div className='col-md-12 p-5 text-center'>
-                                <h3>Total: ${result.toFixed(3)}</h3>
+                                <h3>Total: ${result.toLocaleString('en-US')}</h3>
                             </div>
                             <div className='col-md-12 p-5 text-center'>
                                 <button type="button" className="btn btn-primary m-1">PROCEDER AL PAGO</button>

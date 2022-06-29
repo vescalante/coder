@@ -8,21 +8,21 @@ export default function CartContext({children}) {
     const [totalQuantity, setTotalQuantity] = useState(0);
 
     useEffect(() => {
-        console.log(carrito);
+        console.log("tu carrito: "+carrito);
     }, [carrito]);
 
-    function onAdd(i,p,e){
-        alert("Agregaste:" + e + " del producto "+ i + " al carrito, cada uno cuesta cuesta: $"+ p );
+    function onAdd(i,p,e,a,n){
+        alert("Agregaste a tu carrito:" + n + " ("+ e +"), cada uno cuesta: $"+ p );
         if(isInCart(i)){
             const newCart = carrito.map(obj => {
                 if(obj.itemId === i){
-                    return {...obj, quantity: obj.quantity + e, subtotal: (obj.quantity+e)*p }
+                    return {...obj, quantity: obj.quantity + e, subtotal: (obj.quantity+e)*p, itemName: n, itemImage: a }
                 }
                 return obj;
             });
             setCarrito(newCart);
         }else{
-            setCarrito(current => [...current, {itemId: i, price: p, quantity: e, subtotal: p*e }]);
+            setCarrito(current => [...current, {itemId: i, price: p, quantity: e, subtotal: p*e, itemName: n, itemImage: a }]);
         }
         setTotalQuantity (totalQuantity+e);
         setMostrarItemCount(false);

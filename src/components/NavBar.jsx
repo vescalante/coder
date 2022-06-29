@@ -23,13 +23,13 @@ function NavBar() {
                             <Link className="nav-link active" aria-current="page" to="/">Inicio</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/category/musica">Musica</Link>
+                            <Link className="nav-link" to="/category/regalos">Regalos</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/category/videojuegos">Videojuegos</Link>
+                            <Link className="nav-link" to="/category/cosmeticos">Cosmeticos</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/category/ropa">Ropa</Link>
+                            <Link className="nav-link" to="/category/electronicos">Electrónicos</Link>
                         </li>
                     </ul>
                     <CartWidget cuantos={totalQuantity}/>
