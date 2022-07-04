@@ -6,9 +6,23 @@ export default function CartContext({children}) {
     const [carrito, setCarrito] = useState([]);
     const [mostrarItemCount, setMostrarItemCount] = useState(true);
     const [totalQuantity, setTotalQuantity] = useState(0);
+    const [resultado, setResultado] = useState(0);
 
     useEffect(() => {
-        console.log("tu carrito: "+carrito);
+      let data = localStorage.getItem('cart')
+      let localCarrito = ({})
+      if (data) {
+        localCarrito = JSON.parse(data);
+        setCarrito(localCarrito);
+        setMostrarItemCount(false);
+        setTotalQuantity(localCarrito.reduce((totalQty, currentValueQty) => totalQty = totalQty + currentValueQty.quantity,0))
+      }
+    }, [])
+    
+
+    useEffect(() => {
+        setResultado(carrito.reduce((total, currentValue) => total = total + currentValue.subtotal,0));
+        localStorage.setItem('cart', JSON.stringify(carrito));
     }, [carrito]);
 
     function onAdd(i,p,e,a,n){
@@ -33,7 +47,7 @@ export default function CartContext({children}) {
         if ((totalQuantity-q) === 0) { setMostrarItemCount(true) }
     }
     function clear(){
-        alert("Se ha vaciado el carro");
+        //alert("Se ha vaciado el carro");
         setTotalQuantity(0);
         setMostrarItemCount(true);
         setCarrito([]);
@@ -47,7 +61,7 @@ export default function CartContext({children}) {
         }
     }
     return (
-        <CarritoContext.Provider value={{ mostrarItemCount, setMostrarItemCount, onAdd, totalQuantity, carrito, setCarrito, clear, removeItem }}>
+        <CarritoContext.Provider value={{ mostrarItemCount, setMostrarItemCount, onAdd, totalQuantity, carrito, setCarrito, clear, removeItem, resultado }}>
             {children}
         </CarritoContext.Provider>
     )

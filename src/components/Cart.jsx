@@ -2,11 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import {CarritoContext} from '../context/CartContext';
 import {useContext} from 'react';
-import Item from './Item';
+import CartTable from './CartTable';
 
 export default function cart() {
-    const { carrito, setCarrito, mostrarItemCount, setMostrarItemCount, clear, removeItem } = useContext(CarritoContext);
-    const result = carrito.reduce((total, currentValue) => total = total + currentValue.subtotal,0);
+    const { carrito, setCarrito, mostrarItemCount, setMostrarItemCount, clear, removeItem, resultado } = useContext(CarritoContext);
     return (
         <>
             <div className='container'>
@@ -17,39 +16,10 @@ export default function cart() {
                                 <h2>Tu carrito de Compras</h2>  
                             </div>
                             <div className='col-md-12'>
-                                <table className="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Imágen</th>
-                                            <th scope="col">Producto</th>
-                                            <th scope="col">Precio</th>
-                                            <th scope="col">Cantidad</th>
-                                            <th scope="col">Subtotal</th>
-                                            <th scope="col">Acciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    {carrito &&
-                                        carrito.map((item) => (
-                                            <>
-                                                <tr>
-                                                    <td><img src={item.itemImage} className="rounded-circle" style={{ width: '40px', height: '40px' }} /></td>
-                                                    <td>{item.itemName}</td>
-                                                    <td>${item.price}</td>
-                                                    <td>{item.quantity}</td>
-                                                    <td>${item.subtotal.toLocaleString('en-US')}</td>
-                                                    <td><button className='btn btn-primary' onClick={()=> removeItem(item.itemId, item.quantity)}>Borrar</button></td>
-                                                </tr>
-                                            </>
-                                        ))}
-                                    </tbody>
-                                </table>
+                                <CartTable />
                             </div>
                             <div className='col-md-12 p-5 text-center'>
-                                <h3>Total: ${result.toLocaleString('en-US')}</h3>
-                            </div>
-                            <div className='col-md-12 p-5 text-center'>
-                                <button type="button" className="btn btn-primary m-1">PROCEDER AL PAGO</button>
+                                <Link type="button" className="btn btn-primary m-1" to={"/checkout"}>PROCEDER AL PAGO</Link>
                                 <button type="button" className="btn btn-secondary m-1" onClick={()=> clear()}>VACIAR CARRITO</button>
                             </div>
                         </>
