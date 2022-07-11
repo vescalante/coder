@@ -15,21 +15,21 @@ La pagina se recargará cuando hagas algún cambio.
 
 ## Paquetes adicionales instalados
 
-"bootstrap": "^5.2.0-beta1",
-"firebase": "^9.8.4",
-"formik": "^2.2.9",
-"react-icons": "^4.3.1",
+- "bootstrap": "^5.2.0-beta1",
+- "firebase": "^9.8.4",
+- "formik": "^2.2.9",
+- "react-icons": "^4.3.1",
 
 ## Descripción de paquetes
 
-Bootstrap: Framework de Css para proporcionar estilo al sitio
-Firebase: Se utiliza firebase como administrador de base de datos asi como servidor de deploy
-Formik: Generador y administrador de formularios, se utiliza para el formulario de checkout
-React-Icons: Iconos principalmente usados en botones
+- Bootstrap: Framework de Css para proporcionar estilo al sitio
+- Firebase: Se utiliza firebase como administrador de base de datos asi como servidor de deploy
+- Formik: Generador y administrador de formularios, se utiliza para el formulario de checkout
+- React-Icons: Iconos principalmente usados en botones
 
 ## GIF de uso Simplificado
 
-![alt text](https://mymarketlogic.net/react_shop_app.gif)
+![](https://github.com/vescalante/coder/blob/main/react_shop_app.gif)
 
 ## Link de prueba (deploy)
 
