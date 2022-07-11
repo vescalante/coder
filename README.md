@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Tienda Online ReactJs
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto fué creado con [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Arrancar proyecto desde localhost
 
-In the project directory, you can run:
+Este proyecto puede iniciar con el comando:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Corre el proyecto en modo de desarrollo.
+abre en el puerto 3000 [http://localhost:3000](http://localhost:3000) para ver en el navegador
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+La pagina se recargará cuando hagas algún cambio.
 
-### `npm test`
+## Paquetes adicionales instalados
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+"bootstrap": "^5.2.0-beta1",
+"firebase": "^9.8.4",
+"formik": "^2.2.9",
+"react-icons": "^4.3.1",
 
-### `npm run build`
+## Descripción de paquetes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Bootstrap: Framework de Css para proporcionar estilo al sitio
+Firebase: Se utiliza firebase como administrador de base de datos asi como servidor de deploy
+Formik: Generador y administrador de formularios, se utiliza para el formulario de checkout
+React-Icons: Iconos principalmente usados en botones
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## GIF de uso Simplificado
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![alt text](https://mymarketlogic.net/react_shop_app.gif)
 
-### `npm run eject`
+## Link de prueba (deploy)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+[Aqui puedes probar el proyecto Ver. 1.0](https://coder-project-c84c3.web.app/)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Bugs encontrados
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Cuando se actualiza la pagina estando dentro de un producto el carrito se muestra como vacio a pesar de tener productos dentro

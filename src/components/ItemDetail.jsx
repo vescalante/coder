@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react'
 import ItemCount from './ItemCount';
 import { Link } from 'react-router-dom';
 import {CarritoContext} from '../context/CartContext';
+import "./itemdetail.css";
 
 function ItemDetail({ loading, error, item }) {
     const { mostrarItemCount, setMostrarItemCount, onAdd } = useContext(CarritoContext);
@@ -24,12 +25,12 @@ function ItemDetail({ loading, error, item }) {
                         <div className='col-lg-6'>
                             <img src={prod.itemImage} className="card-img-top" alt="..." />
                         </div>
-                        <div className='col-lg-6 p-3 pt-0'>
+                        <div className='col-lg-6 descripcion'>
                             <h1>{prod.itemName}</h1>
                             <h3>${prod.itemPrice.toLocaleString('en-US')}</h3>
-                            <p>Id: {prod.id}</p>
-                            <p>Categoría: {prod.itemCategory}</p>
-                            <p>Stock: {prod.stock}</p>
+                            <p>Id: {prod.id}
+                            <br/>Categoría: {prod.itemCategory}
+                            <br/>Stock: {prod.stock}</p>
                             <p>{prod.itemDetail}</p>
                             {mostrarItemCount ? <ItemCount itemName={prod.itemName} itemImage={prod.itemImage} stock={prod.stock} initial={1} item={prod.id} price={prod.itemPrice} onAdd={onAdd} /> : <div><Link className="btn btn-primary mt-3" to="/cart">Ir a mi Carrito</Link> <Link className="btn btn-secondary mt-3" to="/">Seguir comprando</Link></div> }
                         </div>

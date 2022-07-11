@@ -69,7 +69,7 @@ input::-webkit-inner-spin-button {
   width: 50%;
   display: inline-block;
   font-size: 13px;
-  margin: 0 0 5px;
+  margin: 0;
   resize: vertical;
 }
 

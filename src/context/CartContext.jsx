@@ -23,22 +23,43 @@ export default function CartContext({children}) {
     useEffect(() => {
         setResultado(carrito.reduce((total, currentValue) => total = total + currentValue.subtotal,0));
         localStorage.setItem('cart', JSON.stringify(carrito));
+        if (totalQuantity===0) {
+            setMostrarItemCount(true);
+        }else{
+            setMostrarItemCount(false);
+        }
     }, [carrito]);
 
     function onAdd(i,p,e,a,n){
-        alert("Agregaste a tu carrito:" + n + " ("+ e +"), cada uno cuesta: $"+ p );
+        //alert("Agregaste a tu carrito:" + n + " ("+ e +"), cada uno cuesta: $"+ p );
         if(isInCart(i)){
             const newCart = carrito.map(obj => {
                 if(obj.itemId === i){
-                    return {...obj, quantity: obj.quantity + e, subtotal: (obj.quantity+e)*p, itemName: n, itemImage: a }
+                    //n es el nombre del articulo
+                    //e es el total de piezas agregadas o la cantidad
+                    //p es el precio por pieza
+                    //i es el id del producto
+                    //a es la imagen
+                    let realQty = 0;
+                    if(e>obj.quantity){
+                        realQty = e - obj.quantity;
+                        //console.log(e+" mayor que "+obj.quantity)
+                        setTotalQuantity (totalQuantity+realQty);
+                        return {...obj, quantity: realQty+obj.quantity, subtotal: (realQty+obj.quantity)*p, itemName: n, itemImage: a }
+                    }else if(e<obj.quantity){
+                        realQty = obj.quantity - e;
+                        //console.log(e+" menor que "+obj.quantity)
+                        setTotalQuantity (totalQuantity-realQty);
+                        return {...obj, quantity: obj.quantity-realQty, subtotal: (obj.quantity-realQty)*p, itemName: n, itemImage: a }
+                    }
                 }
                 return obj;
             });
             setCarrito(newCart);
         }else{
             setCarrito(current => [...current, {itemId: i, price: p, quantity: e, subtotal: p*e, itemName: n, itemImage: a }]);
+            setTotalQuantity (totalQuantity+e);
         }
-        setTotalQuantity (totalQuantity+e);
         setMostrarItemCount(false);
     }
     function removeItem(itemId,q){
@@ -61,7 +82,7 @@ export default function CartContext({children}) {
         }
     }
     return (
-        <CarritoContext.Provider value={{ mostrarItemCount, setMostrarItemCount, onAdd, totalQuantity, carrito, setCarrito, clear, removeItem, resultado }}>
+        <CarritoContext.Provider value={{ mostrarItemCount, setMostrarItemCount, onAdd, totalQuantity, carrito, setCarrito, clear, removeItem, resultado, isInCart }}>
             {children}
         </CarritoContext.Provider>
     )
